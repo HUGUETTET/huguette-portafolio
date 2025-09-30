@@ -1,0 +1,38 @@
+.nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  
+    /* caja rectangular tipo “pill” */
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  
+    border-radius: 9999px; /* borde pill */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  
+    background: rgba(255, 255, 255, 0.15); /* fondo translúcido */
+    backdrop-filter: blur(8px); /* glass effect */
+  }
+  
+  .link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .link:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .active {
+    background: rgba(255, 255, 255, 0.4);
+    color: #111;
+  }
+  
