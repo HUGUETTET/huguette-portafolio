@@ -1,0 +1,14 @@
+.section {
+    position: relative;
+    height: 200vh; /* da espacio para scrollear */
+    display: flex;
+    align-items: stretch; /* center;  */
+    justify-content: center;
+  }
+  
+  .motionSvg {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+  

@@ -1,11 +1,32 @@
 import Head from 'next/head';
 import StickyStatements from '../app/components/StickyStatements';
 import NavBar from '../app/components/NavBar';
+import BeeAnimation from '../app/components/SecAboutMe';
+import Footer from '../app/components/Footer';
+
+const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL;
+
+export const metadata = {
+  metadataBase: FRONTEND_URL,
+  title: {
+    default: "Huguette Torres - Software Developer",
+    template: '%s | Huguette Torres - Software Developer'
+  },
+  description: "Huguette Torres portafolio!",
+  openGraph: {
+    title: "Huguette Torres - Software Developer",
+    description: "Huguette Torres portafolio!",
+    type: "website",
+    // locale: "en_US",
+    url: FRONTEND_URL,
+    siteName: "HuguetteTorres"
+  },
+};
 
 export default function Home() {
   const statements = [
     'Título uno — introducción.',
-    'Título dos — tema intermedio.',
+    <BeeAnimation></BeeAnimation>,
     'Título tres — detalle importante.',
     'Título cuatro — cierre o llamado.',
     <div style={{background: 'blue', padding: '30px'}}><div style={{background: 'red', padding: '30px'}}>hola</div></div>
@@ -30,6 +51,7 @@ export default function Home() {
       <main>
         <StickyStatements statements={statements} sectionIds={sectionIds} />
       </main>
+      <Footer></Footer>
     </>
   );
 }
