@@ -27,7 +27,7 @@ export default function Footer() {
 
         {/* Main copyright */}
         <p className="text-sm text-center md:text-right">
-          © 2025 Huguette's Portafolio.
+          {"© 2025 Huguette's Portafolio."}
         </p>
       </div>
 
