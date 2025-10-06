@@ -14,7 +14,7 @@ export default function StickyStatements({ statements = [], sectionIds = [] }) {
       const stickyEls = containerRef.current.querySelectorAll(`.${styles['sticky-statement']}`);
 
       stickyEls.forEach((el, i) => {
-        const heading = el.querySelector('h1');
+        const heading = el.querySelector('div');
         gsap.fromTo(
           heading,
           { autoAlpha: 1, yPercent: 0 },
@@ -24,8 +24,8 @@ export default function StickyStatements({ statements = [], sectionIds = [] }) {
             ease: 'none',
             scrollTrigger: {
               trigger: el,
-              start: 'top center',
-              end: 'bottom center',
+              start: 'top',
+              end: 'bottom',
               scrub: true,
               // markers: true,
             },
@@ -48,7 +48,7 @@ export default function StickyStatements({ statements = [], sectionIds = [] }) {
           key={i}
           id={sectionIds[i] || `section-${i}`}
         >
-          <h1 className={styles.heading}>{text}</h1>
+          <div className={styles.heading}>{text}</div>
         </div>
       ))}
     </section>

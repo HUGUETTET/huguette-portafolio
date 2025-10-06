@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import StickyStatements from '../app/components/StickyStatements';
 import NavBar from '../app/components/NavBar';
-import BeeAnimation from '../app/components/SecAboutMe';
+import AboutSections from '../app/components/SecAbout';
+import SecWelcome from '../app/components/SecWelcome';
+import SecContact from '../app/components/SecContact';
 import Footer from '../app/components/Footer';
 
 const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL;
@@ -25,21 +27,11 @@ export const metadata = {
 
 export default function Home() {
   const statements = [
-    'Título uno — introducción.',
-    <BeeAnimation></BeeAnimation>,
-    'Título tres — detalle importante.',
-    'Título cuatro — cierre o llamado.',
-    <div style={{background: 'blue', padding: '30px'}}><div style={{background: 'red', padding: '30px'}}>hola</div></div>
+    <SecWelcome></SecWelcome>,
+    <AboutSections></AboutSections>,
   ];
-  // const statements = [
-  //   'Esto es mi primer título pegajoso — presenta una idea clara.',
-  //   'Aquí otro título que se queda fijo mientras lees.',
-  //   'Un tercer statement para el demo — pequeño, conciso y visual.',
-  //   'Último título: call-to-action o resumen.', 
-  //   <div style={{background: 'blue', padding: '30px'}}><div style={{background: 'red', padding: '30px'}}>hola</div></div>
-  // ];
-  const sectionIds = ['sec-1', 'sec-2', 'sec-3', 'sec-4'];
-  const labels = ['Intro', 'Tema 1', 'Tema 2', 'Cierre'];
+  const sectionIds = ['sec-1', 'sec-2', 'sec-3', ];
+  const labels = ['Welcome', 'About me', 'Contact me!',];
 
   return (
     <>
@@ -50,6 +42,7 @@ export default function Home() {
       <NavBar sectionIds={sectionIds} labels={labels} />
       <main>
         <StickyStatements statements={statements} sectionIds={sectionIds} />
+        <SecContact></SecContact>
       </main>
       <Footer></Footer>
     </>
