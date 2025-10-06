@@ -1,76 +1,54 @@
 "use client";
-// components/StickyStatements.jsx
 import React, { useEffect, useRef } from 'react';
 import styles from '../components/styles/StickyStatements.module.css'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-export default function StickyStatements({ statements = [] }) {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function StickyStatements({ statements = [], sectionIds = [] }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    let ctx;
-    let ScrollTrigger;
-    let gsap;
-    let mounted = true;
+    const ctx = gsap.context(() => {
+      const stickyEls = containerRef.current.querySelectorAll(`.${styles['sticky-statement']}`);
 
-    const init = async () => {
-      // solo en cliente
-      if (typeof window === 'undefined') return;
-
-      // Carga dinámica para evitar SSR issues
-      const gsapModule = await import('gsap');
-      const stModule = await import('gsap/dist/ScrollTrigger');
-
-      // obtener exports de forma segura
-      gsap = gsapModule.gsap || gsapModule.default || gsapModule;
-      ScrollTrigger = stModule.ScrollTrigger || stModule.default || stModule;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      // gsap.context ayuda a limpiar
-      ctx = gsap.context(() => {
-        const stickyEls = containerRef.current.querySelectorAll(`.${styles['sticky-statement']}`);
-
-        stickyEls.forEach((el) => {
-          const heading = el.querySelector('h1');
-
-          // animamos el h1 dentro de cada sección
-          gsap.fromTo(heading,
-            { autoAlpha: 1, yPercent: 0 },
-            {
-              autoAlpha: 0,
-              yPercent: -10,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true,
-                // markers: true, // descomenta para debug
-              }
-            }
-          );
-        });
-      }, containerRef);
-    };
-
-    init();
+      stickyEls.forEach((el, i) => {
+        const heading = el.querySelector('div');
+        gsap.fromTo(
+          heading,
+          { autoAlpha: 1, yPercent: 0 },
+          {
+            autoAlpha: 0,
+            yPercent: -10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top',
+              end: 'bottom',
+              scrub: true,
+              // markers: true,
+            },
+          }
+        );
+      });
+    }, containerRef);
 
     return () => {
-      mounted = false;
-      // revertir contexto (quita animaciones y estilos inyectados por context)
-      if (ctx) ctx.revert();
-      // asegurar destruir triggers
-      if (ScrollTrigger && ScrollTrigger.getAll) {
-        ScrollTrigger.getAll().forEach(t => t.kill && t.kill());
-      }
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill && t.kill());
     };
   }, []);
 
   return (
     <section className={styles.section} ref={containerRef}>
       {statements.map((text, i) => (
-        <div className={styles['sticky-statement']} key={i}>
-          <h1 className={styles.heading}>{text}</h1>
+        <div
+          className={styles['sticky-statement']}
+          key={i}
+          id={sectionIds[i] || `section-${i}`}
+        >
+          <div className={styles.heading}>{text}</div>
         </div>
       ))}
     </section>

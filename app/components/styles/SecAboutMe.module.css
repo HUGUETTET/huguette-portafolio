@@ -1,0 +1,57 @@
+.section {
+    position: relative;
+    height: 200vh; /* da espacio para scrollear */
+    display: flex;
+    align-items: stretch; /* center;  */
+    justify-content: center;
+    /* position: relative;
+    height: 3000px; o lo que necesites para tener scroll */
+    overflow: visible;
+  }
+  
+  .motionSvg {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .textContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite que el scroll siga funcionando */
+    z-index: 10;
+  }
+
+  .scrollText {
+    position: absolute;
+    top: 50%; /* Puedes ajustar esto si lo quieres más arriba o abajo */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 2rem;
+    color: #222;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    background: rgba(255, 0, 0, 0.2); /* solo para debug */
+  }
+
+  .beePopup {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    transition: left 0.1s ease, top 0.1s ease;
+  }
+  

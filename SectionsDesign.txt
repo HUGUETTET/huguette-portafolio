@@ -1,0 +1,42 @@
+#sec-1  Inicio
+- Nombre + título corto (Frontend Developer | Ingeniera Mecatrónica | Creativa)
+- Frase personal que te defina (“Creo experiencias digitales con lógica, diseño y libertad”)
+- Foto tuya o ilustración minimalista.
+- CTA: “Ver proyectos” o “Contáctame”.
+
+#sec-2  Sobre mí
+- Breve bio: tu historia (ingeniera mecatrónica → frontend → viajera → explorando proyectos libres).
+- Lo que te mueve: creatividad, libertad, diseño con propósito.
+- Foto o ilustración + timeline visual.
+
+#sec-3  Habilidades
+- Desarrollo: React, Next.js, Tailwind, Prisma, Supabase, etc.
+- Electrónica/mecatrónica: microcontroladores (ej. ESP32).
+- Creatividad: diseño, arte, mapas interactivos.
+- Soft skills: independencia, resolución de problemas, pensamiento crítico.
+- Visual tipo grid con íconos.
+
+#sec-4  Proyectos
+- **Proyectos tech**:  
+  - Travel Guides (CMS + mapas + frontend)  
+  - Sitio con ESP32 control LED (IoT)  
+  - Otros mini proyectos que quieras mostrar.
+- **Proyectos creativos**:  
+  - Arte, diseño, mapas de viaje.
+- Cada uno con: screenshot + descripción breve + stack usado + link demo/github.
+
+#sec-5  Experiencia
+- Daikin → 2 años como Frontend Developer.  
+- Explica en bullets lo que hacías: UI, consumo de APIs, optimización, etc.  
+- Añade otros trabajos o proyectos freelance si quieres.
+
+#sec-6  Blog / Pensamientos (opcional)
+- Artículos cortos: reflexiones de viaje, filosofía, tech & vida libre.  
+- Esto te da un toque más humano y personal.
+
+#sec-7  Contacto
+- Email, LinkedIn, GitHub.  
+- Tal vez un pequeño formulario o un “Hablemos de tu proyecto”.
+
+#sec-8  Footer
+- Créditos, links rápidos, redes sociales.
