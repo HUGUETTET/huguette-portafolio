@@ -27,8 +27,8 @@ export const metadata = {
 
 export default function Home() {
   const statements = [
-    <SecWelcome></SecWelcome>,
-    <AboutSections></AboutSections>,
+    <SecWelcome key="sec-1"></SecWelcome>,
+    <AboutSections key="sec-2"></AboutSections>,
   ];
   const sectionIds = ['sec-1', 'sec-2', 'sec-3', ];
   const labels = ['Welcome', 'About me', 'Contact me!',];
@@ -42,7 +42,7 @@ export default function Home() {
       <NavBar sectionIds={sectionIds} labels={labels} />
       <main>
         <StickyStatements statements={statements} sectionIds={sectionIds} />
-        <SecContact></SecContact>
+        <SecContact key="sec-3"></SecContact>
       </main>
       <Footer></Footer>
     </>

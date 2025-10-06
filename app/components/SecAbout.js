@@ -198,7 +198,7 @@ export default function AboutMeSection() {
             </p>
             <div style={{height: '2rem'}} ></div>
             <p>
-              Having worked in cross-functional teams across the U.S. and Mexico, I thrive in collaborative environments and love bridging technical and human perspectives. I'm a fast learner, curious by nature, and driven by continuous improvement. Let’s build something that matters.
+              {"Having worked in cross-functional teams across the U.S. and Mexico, I thrive in collaborative environments and love bridging technical and human perspectives. I'm a fast learner, curious by nature, and driven by continuous improvement. Let’s build something that matters."}
             </p>
           </div>
         </div>
